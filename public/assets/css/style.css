@@ -1,0 +1,25 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin-top: 70px;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.video-fluid {
+    width: 100%;
+    height: auto;
+}
+
+.alert {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    z-index: 99999;
+}
+
+.pass-page {
+    width: 100vw;
+    height: 100vh
+}

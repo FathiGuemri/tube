@@ -1,0 +1,47 @@
+extends layout
+
+block content
+    //- .pass-page
+    //-     leble.lead password
+    //-     br
+    //-     input#password.my-3(type="password", name="password", class="form-control w-25 pass")
+    //-     span.lead.mx-3.mt-3 Click
+    //-     kbd.p-3 enter
+    if dangerMsg
+        .alert.alert-danger.w-25.card.p-3= dangerMsg
+    if successMsg
+        .alert.alert-success.w-25.crad.p-3= successMsg
+    .container
+        .row
+            .col-md-6.pr-5.pt-5
+                h3.pb-3 Add New Video
+                form.mt-5(action="" method="POST" enctype="multipart/form-data")
+                    div.md-form
+                        input( type="text" name="title" id="title" class="form-control  mdb-autocomplete")
+                        label(for="videoTitle" class="active") Video Title
+                    div.input-group.pt-4
+                        div.input-group-prepend.w-100
+                            span(class="input-group-text px-4" id="inputGroupFileAddon01")
+                                i(class="fas fa-cloud-upload-alt")
+                            div.custom-file
+                                input(type="file" name="videoFile" class="custom-file-input" id="inputGroupFile01"  aria-describedby="inputGroupFileAddon01")
+                                label(class="custom-file-label" for="inputGroupFile01") Uplode video 
+                    button(type="submit" class="btn btn-success d-block mt-5 mx-auto") add video
+            .col-md-6.pt-5
+                h3.pb-3 Video Uploaded
+                table.table.table-striped
+                    thead.teal
+                        tr
+                            th(scope="col") id
+                            th(scope="col") title
+                            th(scope="col") Action
+                    tbody
+                        each item in data
+                            tr
+                                th(scope="row")= item.id
+                                td= item.title
+                                td.pt-1
+                                    a.btn.btn-danger.btn-sm(href='/delede/' + item.id) delet
+    
+
+    
