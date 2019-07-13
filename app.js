@@ -27,10 +27,10 @@ app.get('/delede/:id', deleteVideo);
 
 // create connection to mysql database
 const db = mysql.createConnection({
-    host: 'bwzwgvlz9y6of5f6rdfm-mysql.services.clever-cloud.com',
-    user: 'uyvkykp7ux0r5azi',
-    password: '79RNPi3HCEKw3wDtcEwo',
-    database: 'bwzwgvlz9y6of5f6rdfm'
+    host: 'b6hdwv6yo3biexq37s2e-mysql.services.clever-cloud.com',
+    user: 'uwirc5lbkahga5lt',
+    password: '3CtOUgE4frbqhFuBUE9x',
+    database: 'b6hdwv6yo3biexq37s2e'
 });
 
 db.connect((err) => {
