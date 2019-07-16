@@ -4,7 +4,7 @@ var express = require('express'),
     mysql = require('mysql'),
     path = require('path'),
     app = express(),
-    port = 8081;
+    port = 8080;
 
 const { indexRouter } = require('./routes/index.js');
 const { dashboard, admin, addVideo, deleteVideo } = require('./routes/dashboard');
@@ -30,7 +30,7 @@ const db = mysql.createConnection({
     host: 'b6hdwv6yo3biexq37s2e-mysql.services.clever-cloud.com',
     user: 'uwirc5lbkahga5lt',
     password: '3CtOUgE4frbqhFuBUE9x',
-    database: 'b6hdwv6yo3biexq37s2e'
+    database: '3CtOUgE4frbqhFuBUE9x'
 });
 
 db.connect((err) => {
