@@ -31,8 +31,9 @@ block content
                     tbody
                         each item in data
                             -var d = new Date(item.date).toDateString()
-                            -var t = new Date(item.date).toLocaleTimeString()
-                            -var s = d +  ' '+ t
+                            -var t = new Date(item.date)
+                            -t.setHours(t.getHours() +1)
+                            -var s = d +  ' '+ t.toLocaleTimeString()
                             tr
                                 th(scope="row")= item.id
                                 td= item.title
