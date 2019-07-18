@@ -4,7 +4,7 @@ var express = require('express'),
     mysql = require('mysql'),
     path = require('path'),
     app = express(),
-    port = 8081;
+    port = 8080;
 
 const { indexRouter } = require('./routes/index.js');
 const { dashboard, admin, addVideo, deleteVideo } = require('./routes/dashboard');

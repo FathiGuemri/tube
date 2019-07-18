@@ -1,16 +1,8 @@
 extends layout
 
 block content
-    //- .pass-page
-    //-     leble.lead password
-    //-     br
-    //-     input#password.my-3(type="password", name="password", class="form-control w-25 pass")
-    //-     span.lead.mx-3.mt-3 Click
-    //-     kbd.p-3 enter
-    if dangerMsg
-        .alert.alert-danger.w-25.card.p-3= dangerMsg
-    if successMsg
-        .alert.alert-success.w-25.crad.p-3= successMsg
+    if msg
+        .alert.w-25.card.p-3(data-msg-status= msg.status)= msg.msg
     .container
         .row
             .col-md-6.pr-5.pt-5

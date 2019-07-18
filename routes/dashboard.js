@@ -1,6 +1,6 @@
 let fs = require('fs');
-var dangerMsg;
-var successMsg;
+var msg;
+
 module.exports = {
 
 
@@ -29,14 +29,14 @@ module.exports = {
                         if (err)
                             return res.status(500).send(err);
                     });
-                    successMsg = 'Video added successfully';
+                    msg = { msg: ' Video added successfully', status: 'success' };
                     res.redirect('/dashboard');
                 } else {
                     let deletedScima = "DELETE FROM `video` WHERE id=" + id;
                     db.query(deletedScima, (err, rs) => {
                         if (err)
                             return res.status(500).send(err);
-                        dangerMsg = 'Invalid Video format. oly "mp4", "ogg", and "webm" Image formats are allowed ';
+                        msg = { msg: 'Invalid Video format. oly "mp4", "ogg", and "webm" videos formats are allowed ', status: 'danger' };
                     });
                     res.redirect('/dashboard');
                 }
@@ -62,7 +62,7 @@ module.exports = {
                 db.query(deletedScima, (err, rs) => {
                     if (err)
                         return res.status(500).send(err);
-                    successMsg = 'Video Deleded Successfully';
+                    msg = { msg: ' Video Deleded successfully', status: 'success' };
                     res.redirect('/dashboard')
                 });
             });
@@ -76,8 +76,7 @@ module.exports = {
                 return res.status(500).send(err);
             res.render('dashboard', {
                 title: 'dashboard',
-                dangerMsg: dangerMsg,
-                successMsg: successMsg,
+                msg: msg,
                 data: rs
             })
         });
