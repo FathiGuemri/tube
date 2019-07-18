@@ -11,9 +11,10 @@ module.exports = {
     addVideo: (req, res, next) => {
         if (req.files) {
             var videoName = req.body.title,
-                videoFile = req.files.videoFile;
-            let shcima = "INSERT INTO `video`(`title`, `videoName`)" +
-                "VALUES ('" + videoName + "','" + videoFile.name + "')";
+                videoFile = req.files.videoFile,
+                date = new Date().toString();
+            let shcima = "INSERT INTO `video`(`title`, `videoName`,`date`)" +
+                "VALUES ('" + videoName + "','" + videoFile.name + "','" + date + "')";
             db.query(shcima, (err, rs) => {
                 if (err)
                     return res.status(500).send(err);

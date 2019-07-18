@@ -13,12 +13,12 @@ block content
                         label(for="videoTitle" class="active") Video Title
                     div.input-group.pt-4
                         div.input-group-prepend.w-100
-                            span(class="input-group-text px-4" id="inputGroupFileAddon01")
+                            span(class="input-group-text px-4 btn-orange" id="inputGroupFileAddon01")
                                 i(class="fas fa-cloud-upload-alt")
                             div.custom-file
                                 input(type="file" name="videoFile" class="custom-file-input" id="inputGroupFile01"  aria-describedby="inputGroupFileAddon01")
-                                label(class="custom-file-label" for="inputGroupFile01") Uplode video 
-                    button(type="submit" class="btn btn-success d-block mt-5 mx-auto") add video
+                                label(class="custom-file-label" for="inputGroupFile01") Uploade video
+                    button(type="submit" class="btn btn-teal d-block mt-5 mx-auto") add video
             .col-md-6.pt-5
                 h3.pb-3 Video Uploaded
                 table.table.table-striped
@@ -26,12 +26,17 @@ block content
                         tr
                             th(scope="col") id
                             th(scope="col") title
+                            th(scope="col") Upload time 
                             th(scope="col") Action
                     tbody
                         each item in data
+                            -var d = new Date(item.date).toDateString()
+                            -var t = new Date(item.date).toLocaleTimeString()
+                            -var s = d +  ' '+ t
                             tr
                                 th(scope="row")= item.id
                                 td= item.title
+                                td= s
                                 td.pt-1
                                     a.btn.btn-danger.btn-sm(href='/delede/' + item.id) delet
     

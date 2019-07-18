@@ -23,3 +23,8 @@ a {
     width: 100vw;
     height: 100vh
 }
+
+.custom-file-label::after {
+    background-color: #f57c00!important;
+    color: #FFF !important;
+}
