@@ -1,15 +1,75 @@
 body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    margin-top: 70px;
+    overflow-x: hidden;
 }
 
 a {
     color: #00B7FF;
 }
 
-.video-fluid {
+.navbar {
+    background-color: #333;
+}
+
+.navbar-brand {
+    font-size: 18px;
+    color: #fff;
+}
+
+header {
+    position: relative;
+    background-color: #565656;
+}
+
+.video {
+    height: 400px;
+}
+
+.v-info {
+    border-left: none;
+    color: #FFF;
+    background-color: #333;
+    height: 100%;
+    position: relative;
+}
+
+.v-info .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+}
+
+.video-fluid {
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+}
+
+.video-list {
+    background: #333;
+}
+
+.video-link {
+    width: 100%;
+    background: #000000cf !important;
+}
+
+.video-link .video-img {
+    height: 150px;
+    float: left;
+}
+
+.video-link .video-img img {
+    height: 100%;
+    width: 100%;
+    float: right;
+}
+
+.video-link .video-title {
+    position: relative;
+    bottom: 0;
+    left: 0;
 }
 
 .alert {
@@ -20,8 +80,7 @@ a {
 }
 
 .pass-page {
-    width: 100vw;
-    height: 100vh
+    width: 100%;
 }
 
 .custom-file-label::after {

@@ -1,19 +1,26 @@
 extends layout
-
+-var titleV = ""
 block content
-  .container
-    .row
-      .col-md-8.pr-5
-        video( src="https://mdbootstrap.com/img/video/Sail-Away.mp4" class="video-fluid lecter z-depth-1" autoplay loop controls  )
-      .col-md-4.pl-5
-        ul(class="list-unstyled")
-          each item in videsData
-            li.media
-              button.w-100(onclick="playPause()" data-video='assets/video/' + item.id + '-video.' + item.videoName.split('.')[1], class="btn btn-outline-success text-left open pl-4") 
-                .row
-                  .col-md-2
-                    i(class="far fa-play-circle mr-5" style="font-size: 18px")
-                  .col-md-10
-                    span.col-md-8=item.title
-               
-    
+    header
+      .row
+        .col-md-8
+          .video.py-4.pl-4
+              video( src="https://mdbootstrap.com/img/video/Sail-Away.mp4" class="video-fluid  lecter z-depth-1" autoplay loop controls)
+        .col-md-4.py-4.pr-5
+          .v-info.p-4 
+            h3 Video Title
+            p.lead Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            .info
+              span.float-left.p-3 12:10 12/13/2019
+              span.float-right.p-3 Action en
+              .claerfix
+        ul.col-12.list-unstyled.video-list
+          .container
+            .row
+              each item in videsData
+                li.col-md-3.py-3
+                  button.p-1.video-link.p-0.btn-outline-orange.btn.w-100(data-video='assets/video/' + item.id + '-video.' + item.videoName.split('.')[1], class="open")
+                      .video-img.w-50
+                        img(src="https://amc-theatres-res.cloudinary.com/v1552420872/amc-cdn/production/2/movies/50900/50869/PosterDynamic/74480.jpg") 
+                      span.video-title.w-50=item.title
+                      .clearfix

@@ -18,6 +18,7 @@ $(function() {
     $('.open').on('click', function() {
         let urlVideo = $(this).attr('data-video');
         lecter.attr('src', urlVideo);
+        $(window).scrollTop(0)
     });
 
     var close = setTimeout(function() {
