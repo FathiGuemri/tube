@@ -10,14 +10,25 @@ block content
                 form.mt-5(action="" method="POST" enctype="multipart/form-data")
                     div.md-form
                         input( type="text" name="title" id="title" class="form-control  mdb-autocomplete")
-                        label(for="videoTitle" class="active") Video Title
+                        label(for="videoTitle" class="active") عنوان الفيلم
+                    div.md-form
+                        i.fas.fa-pencil-alt.prefix
+                        textarea( id="form7" class="md-textarea form-control" rows="3")
+                        label( for="form7")  مالخص الفيلم كتابيا
                     div.input-group.pt-4
                         div.input-group-prepend.w-100
                             span(class="input-group-text px-4 btn-orange" id="inputGroupFileAddon01")
-                                i(class="fas fa-cloud-upload-alt")
+                                i(class="fas fa-film")
                             div.custom-file
                                 input(type="file" name="videoFile" class="custom-file-input" id="inputGroupFile01"  aria-describedby="inputGroupFileAddon01")
-                                label(class="custom-file-label" for="inputGroupFile01") Uploade video
+                                label(class="custom-file-label" for="inputGroupFile01") ارفع الفيلم
+                     div.input-group.pt-4
+                        div.input-group-prepend.w-100
+                            span(class="input-group-text px-4 btn-orange" id="inputGroupFileAddon01")
+                                i(class="fas fa-image")
+                            div.custom-file
+                                input(type="file" name="imageFile" class="custom-file-input" id="inputGroupFile01"  aria-describedby="inputGroupFileAddon01")
+                                label(class="custom-file-label" for="inputGroupFile01") ارفع صور معبرة للفيلم
                     button(type="submit" class="btn btn-teal d-block mt-5 mx-auto") add video
             .col-md-6.pt-5
                 h3.pb-3 Video Uploaded

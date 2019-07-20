@@ -7,20 +7,29 @@ block content
           .video.py-4.pl-4
               video( src="https://mdbootstrap.com/img/video/Sail-Away.mp4" class="video-fluid  lecter z-depth-1" autoplay loop controls)
         .col-md-4.py-4.pr-5
-          .v-info.p-4 
-            h3 Video Title
+          .v-info.p-4.card
+            h3 
+              strong Video Title
+              span.py-2.thumbs.float-right
+                |300K
+                i.fas.mx-2.fa-thumbs-up
+                |100
+                i.fas.mx-2.fa-thumbs-down
+                .clearfix
             p.lead Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             .info
               span.float-left.p-3 12:10 12/13/2019
               span.float-right.p-3 Action en
               .claerfix
         ul.col-12.list-unstyled.video-list
+          i.fas.fa-chevron-circle-right.prev
+          i.fas.fa-chevron-circle-left.next
           .container
-            .row
-              each item in videsData
-                li.col-md-3.py-3
-                  button.p-1.video-link.p-0.btn-outline-orange.btn.w-100(data-video='assets/video/' + item.id + '-video.' + item.videoName.split('.')[1], class="open")
-                      .video-img.w-50
-                        img(src="https://amc-theatres-res.cloudinary.com/v1552420872/amc-cdn/production/2/movies/50900/50869/PosterDynamic/74480.jpg") 
-                      span.video-title.w-50=item.title
-                      .clearfix
+              .responsive
+                each item in videsData
+                  li.p-3
+                    button.p-1.video-link.p-0.btn-outline-orange.btn.w-100(data-item=item, data-video='assets/video/' + item.id + '-video.' + item.videoName.split('.')[1], class="open")
+                        .video-img.w-50
+                          img(src="https://amc-theatres-res.cloudinary.com/v1552420872/amc-cdn/production/2/movies/50900/50869/PosterDynamic/74480.jpg") 
+                        span.video-title.w-50=item.title
+                        .clearfix
