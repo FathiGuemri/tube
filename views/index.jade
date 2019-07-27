@@ -4,22 +4,17 @@ block content
     header
       .row
         .col-md-8
-          .video.py-4.pl-4
-              video( src="https://mdbootstrap.com/img/video/Sail-Away.mp4" class="video-fluid  lecter z-depth-1" autoplay loop controls)
-        .col-md-4.py-4.pr-5
+          .video.py-4.pl-md-4
+              video(poster="/assets/images/63-image.jpeg" src="https://mdbootstrap.com/img/video/Sail-Away.mp4" class="video-fluid  lecter z-depth-1" autoplay loop controls)
+        .col-md-4.py-md-4.pr-md-5
           .v-info.p-4.card
-            h3 
+            h4
               strong Video Title
-              span.py-2.thumbs.float-right
-                |300K
-                i.fas.mx-2.fa-thumbs-up
-                |100
-                i.fas.mx-2.fa-thumbs-down
-                .clearfix
+              .clearfix
             p.lead Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             .info
-              span.float-left.p-3 12:10 12/13/2019
-              span.float-right.p-3 Action en
+              span.float-left.p-3.time 12:10 12/13/2019
+              span.p-3.type.thumbs.float-right Action en
               .claerfix
         ul.col-12.list-unstyled.video-list
           i.fas.fa-chevron-circle-right.prev
@@ -30,6 +25,25 @@ block content
                   li.p-3
                     button.p-1.video-link.p-0.btn-outline-orange.btn.w-100(data-item=item, data-video='assets/video/' + item.id + '-video.' + item.videoName.split('.')[1], class="open")
                         .video-img.w-50
-                          img(src="https://amc-theatres-res.cloudinary.com/v1552420872/amc-cdn/production/2/movies/50900/50869/PosterDynamic/74480.jpg") 
+                          img(src='assets/images/' + item.id + '-image.' + item.image.split('.')[1]) 
                         span.video-title.w-50=item.title
                         .clearfix
+    .container.my-5.py-5
+      div(class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups")
+          .btn-group.mr-2(role="group" aria-label="First group")
+            button.btn.btn-default.active.waves-effect(type='submit' data-filter="all") All
+            each itemType in types
+              button(type="button" data-filter='.' + itemType.type, class="btn btn-default waves-effect")= itemType.type
+      ul( id="destination" class="hidden")
+        .row#container
+            each item,index in videsData
+                li.p-3.col-md-4.py-4.mix(class=item.type data-order=(index + 1))
+                    button.p-1.video-link.p-0.btn-outline-orange.btn.w-100(data-item=item, data-video='assets/video/' + item.id + '-video.' + item.videoName.split('.')[1], class="open")
+                        .video-img.w-50
+                          img(src='assets/images/' + item.id + '-image.' + item.image.split('.')[1]) 
+                        span.video-title.w-50=item.title
+                        .clearfix
+
+        
+       
+  

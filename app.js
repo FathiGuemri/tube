@@ -7,7 +7,7 @@ var express = require('express'),
     port = 8080;
 
 const { indexRouter } = require('./routes/index.js');
-const { dashboard, admin, addVideo, deleteVideo } = require('./routes/dashboard');
+const { dashboard, admin, addVideo, deleteVideo, adNewType } = require('./routes/dashboard');
 
 app.set('port', process.env.port || port);
 app.set('views', __dirname + '/views');
@@ -23,6 +23,7 @@ app.get('/', indexRouter);
 app.get('/admin', admin);
 app.get('/dashboard', dashboard);
 app.post('/dashboard', addVideo);
+app.post('/dashboard/adNewType', adNewType);
 app.get('/delede/:id', deleteVideo);
 
 // create connection to mysql database

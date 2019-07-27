@@ -6,19 +6,36 @@ html
     link(rel='stylesheet', href='/assets/css/all.css')
     link(rel='stylesheet', href='/assets/css/bootstrap.min.css')
     link(rel='stylesheet', href='/assets/css/mdb.min.css')
+    
     link(rel='stylesheet', href='/assets/css/style.css')
-    link(rel="shortcut icon", href="https://i.ya-webdesign.com/images/orange-video-icon-png-3.png", 
-    type="image/ico")
-    script(src="/assets/js/jquery-3.4.1.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js")
-    script(src="/assets/js/main.js")
-  body 
+    link(rel="shortcut icon", href="https://i.ya-webdesign.com/images/orange-video-icon-png-3.png", type="image/ico")
+  
+  body
     .navbar.navbar-leyth
-      .navbar-brand
+      a.navbar-brand(href="/")
         img.mr-4(width="30"  src="https://i.ya-webdesign.com/images/orange-video-icon-png-3.png")
         | MovieTube
+      form.form-inline.ml-auto
+        .md-form.my-0
+          input(class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search")
       a(href="/" class="btn btn-sm btn-orange float-right")
         i.fa.fa-home.mr-3
         |home
-    block content
-        
+    block content 
+    footer
+      .p-3.bg-dark
+        .container
+          p
+          | Copyright &copy; 2019 |
+          i.fa.fa-value(aria-hidden='true') &nbsp;
+          a(href='/') Movie Tube
+          p.float-right
+            | dsigner : ftouh web developer
+            i.fas.fa-heart.ml-3
+    script(src="/assets/js/jquery-3.4.1.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.5/js/mdb.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js")
+    script(src="/assets/js/main.js")    

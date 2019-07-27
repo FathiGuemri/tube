@@ -7,13 +7,13 @@ block content
         .row
             .col-md-6.pr-5.pt-5
                 h3.pb-3 Add New Video
-                form.mt-5(action="" method="POST" enctype="multipart/form-data")
+                form.mt-5(action="/dashboard" method="POST" enctype="multipart/form-data")
                     div.md-form
                         input( type="text" name="title" id="title" class="form-control  mdb-autocomplete")
                         label(for="videoTitle" class="active") عنوان الفيلم
                     div.md-form
                         i.fas.fa-pencil-alt.prefix
-                        textarea( id="form7" class="md-textarea form-control" rows="3")
+                        textarea( id="form7" name="description" class="md-textarea form-control" rows="3")
                         label( for="form7")  مالخص الفيلم كتابيا
                     div.input-group.pt-4
                         div.input-group-prepend.w-100
@@ -27,9 +27,13 @@ block content
                             span(class="input-group-text px-4 btn-orange" id="inputGroupFileAddon01")
                                 i(class="fas fa-image")
                             div.custom-file
-                                input(type="file" name="imageFile" class="custom-file-input" id="inputGroupFile01"  aria-describedby="inputGroupFileAddon01")
+                                input(type="file" name="image" class="custom-file-input" id="inputGroupFile01"  aria-describedby="inputGroupFileAddon01")
                                 label(class="custom-file-label" for="inputGroupFile01") ارفع صور معبرة للفيلم
-                    button(type="submit" class="btn btn-teal d-block mt-5 mx-auto") add video
+                    select.custom-select.custom-select-sm.my-4.w-50(name="type")
+                        option(selected) Open this select menu
+                        each selectType in types
+                            option(value=selectType.type)= selectType.type
+                    button(type="submit" class="btn btn-teal d-block my-4 mx-auto") add video
             .col-md-6.pt-5
                 h3.pb-3 Video Uploaded
                 table.table.table-striped
@@ -51,6 +55,10 @@ block content
                                 td= s
                                 td.pt-1
                                     a.btn.btn-danger.btn-sm(href='/delede/' + item.id) delet
-    
+            form.w-50(action="/dashboard/adNewType" method="POST" enctype="multipart/form-data")
+                input#newType(type="text" name="newType" class="form-control form-control-sm float-left mdb-autocomplete w-50 my-4" placeholder="add  new film type")
+                button#new-type.btn.btn-teal.btn-sm.float-left.my-4.mr-0(type="submit")
+                    i.fas.fa-plus
+            .clearfix
 
     
