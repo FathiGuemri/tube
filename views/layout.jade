@@ -11,16 +11,23 @@ html
     link(rel="shortcut icon", href="https://i.ya-webdesign.com/images/orange-video-icon-png-3.png", type="image/ico")
   
   body
-    .navbar.navbar-leyth
+    .navbar.navbar-dark.navbar-expand-sm
       a.navbar-brand(href="/")
         img.mr-4(width="30"  src="https://i.ya-webdesign.com/images/orange-video-icon-png-3.png")
         | MovieTube
-      form.form-inline.ml-auto
-        .md-form.my-0
-          input(class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search")
-      a(href="/" class="btn btn-sm btn-orange float-right")
-        i.fa.fa-home.mr-3
-        |home
+      button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      .ml-5.collapse.navbar-collapse#basicExampleNav
+        ul(class="navbar-nav  lighten-4 text-danger")
+          each navLang in lang
+            li.nav-item.mx-4
+              a(class="nav-link active" href="/fulter/" + navLang.lang)= navLang.lang
+        form.form-inline.ml-auto
+          .md-form.my-0
+            input(class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search")
+        a(href="/" class="btn btn-sm btn-orange float-right")
+          i.fa.fa-home.mr-3
+          |home
     block content 
     footer
       .p-3.bg-dark
@@ -30,7 +37,7 @@ html
           i.fa.fa-value(aria-hidden='true') &nbsp;
           a(href='/') Movie Tube
           p.float-right
-            | dsigner : ftouh web developer
+            | designer : ftouh web developer
             i.fas.fa-heart.ml-3
     script(src="/assets/js/jquery-3.4.1.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js")

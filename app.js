@@ -7,7 +7,8 @@ var express = require('express'),
     port = 8080;
 
 const { indexRouter } = require('./routes/index.js');
-const { dashboard, admin, addVideo, deleteVideo, adNewType } = require('./routes/dashboard');
+const { dashboard, admin, addVideo, deleteVideo, adNewType, adNewLang } = require('./routes/dashboard');
+const { getData } = require('./routes/fulter.js');
 
 app.set('port', process.env.port || port);
 app.set('views', __dirname + '/views');
@@ -24,7 +25,9 @@ app.get('/admin', admin);
 app.get('/dashboard', dashboard);
 app.post('/dashboard', addVideo);
 app.post('/dashboard/adNewType', adNewType);
+app.post('/dashboard/adNewLang', adNewLang);
 app.get('/delede/:id', deleteVideo);
+app.get('/fulter/:fulter', getData);
 
 // create connection to mysql database
 const db = mysql.createConnection({

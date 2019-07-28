@@ -29,10 +29,15 @@ block content
                             div.custom-file
                                 input(type="file" name="image" class="custom-file-input" id="inputGroupFile01"  aria-describedby="inputGroupFileAddon01")
                                 label(class="custom-file-label" for="inputGroupFile01") ارفع صور معبرة للفيلم
-                    select.custom-select.custom-select-sm.my-4.w-50(name="type")
-                        option(selected) Open this select menu
-                        each selectType in types
-                            option(value=selectType.type)= selectType.type
+                    .select
+                        select.custom-select.custom-select-sm.my-4(name="type")
+                            option(selected) Open this select menu
+                            each selectType in types
+                                option(value=selectType.type)= selectType.type
+                        select.custom-select.custom-select-sm.my-4.w-fit-content(name="lang")
+                            option(selected) Open this select menu
+                            each filemLang in lang
+                                option(value=filemLang.lang)= filemLang.lang
                     button(type="submit" class="btn btn-teal d-block my-4 mx-auto") add video
             .col-md-6.pt-5
                 h3.pb-3 Video Uploaded
@@ -57,6 +62,11 @@ block content
                                     a.btn.btn-danger.btn-sm(href='/delede/' + item.id) delet
             form.w-50(action="/dashboard/adNewType" method="POST" enctype="multipart/form-data")
                 input#newType(type="text" name="newType" class="form-control form-control-sm float-left mdb-autocomplete w-50 my-4" placeholder="add  new film type")
+                button#new-type.btn.btn-teal.btn-sm.float-left.my-4.mr-0(type="submit")
+                    i.fas.fa-plus
+            .clearfix
+            form.w-50(action="/dashboard/adNewLang" method="POST" enctype="multipart/form-data")
+                input#newType(type="text" name="lang" class="form-control form-control-sm float-left mdb-autocomplete w-50 my-4" placeholder="add  new film lang")
                 button#new-type.btn.btn-teal.btn-sm.float-left.my-4.mr-0(type="submit")
                     i.fas.fa-plus
             .clearfix

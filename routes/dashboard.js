@@ -18,6 +18,15 @@ module.exports = {
         });
         res.redirect('/dashboard');
     },
+    adNewLang: (req, res) => {
+        console.log(req.body.lang);
+        shcimaLang = "INSERT INTO `langFilm`(`lang`) VALUES ('" + req.body.lang + "')";
+        db.query(shcimaLang, (err, rs) => {
+            if (err) res.send(500).send(err);
+            msg = { msg: 'film Lang added successfuly', status: 'success' }
+        });
+        res.redirect('/dashboard');
+    },
 
     addVideo: (req, res, next) => {
         if (req.files) {
@@ -26,9 +35,11 @@ module.exports = {
                 date = new Date().toString(),
                 image = req.files.image,
                 description = req.body.description,
-                type = req.body.type;
-            let shcima = "INSERT INTO `video`(`title`, `videoName`,`date`, `description`, `image`, `type`)" +
-                " VALUES ('" + videoName + "','" + videoFile.name + "','" + date + "','" + description + "','" + image.name + "','" + type + "')";
+                type = req.body.type,
+                lang = req.body.lang;
+            let shcima = "INSERT INTO `video`(`title`, `videoName`,`date`, `description`, `image`, `type`, `lang`)" +
+                " VALUES ('" + videoName + "','" + videoFile.name + "','" + date + "','" +
+                description + "','" + image.name + "','" + type + "','" + lang + "')";
             db.query(shcima, (err, rs) => {
                 if (err)
                     return res.status(500).send(err);
@@ -97,7 +108,6 @@ module.exports = {
                 });
                 fs.unlink('public/assets/images/' + photoName, (err) => {
                     if (err) res.send(5000).send(err);
-                    console.log('delete')
                 });
             });
         });
@@ -105,7 +115,8 @@ module.exports = {
     },
     dashboard: (req, res, next) => {
         let selectQuery = 'SELECT * FROM `video` Order By id asc',
-            typeQuery = "SELECT * FROM `selectionType` WHERE 1";
+            typeQuery = "SELECT * FROM `selectionType` WHERE 1",
+            langQuery = "SELECT * FROM `langFilm` WHERE 1";
 
         db.query(selectQuery, (err, rs) => {
             if (err)
@@ -114,11 +125,16 @@ module.exports = {
             db.query(typeQuery, (er, types) => {
                 if (er)
                     return res.status(500).send(e);
-                res.render('dashboard', {
-                    title: 'dashboard',
-                    msg: msg,
-                    data: rs,
-                    types: types
+                db.query(langQuery, (e, lang) => {
+                    if (e)
+                        return res.status(500).send(e);
+                    res.render('dashboard', {
+                        title: 'dashboard',
+                        msg: msg,
+                        data: rs,
+                        types: types,
+                        lang: lang
+                    });
                 });
             });
 

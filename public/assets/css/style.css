@@ -21,6 +21,10 @@ ul {
     color: #fff;
 }
 
+.navbar .nav-item .nav-link {
+    text-transform: capitalize;
+}
+
 header {
     position: relative;
     background-color: #565656;
@@ -137,6 +141,55 @@ button.slick-prev.slick-arrow {
     content: "\f382";
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
+}
+
+.video-list.slick {
+    background: #fff;
+    position: relative;
+    color: #555;
+}
+
+.video-list.slick .next,
+.video-list.slick .prev {
+    color: #fd7e14;
+}
+
+.typeSlide {
+    position: relative;
+}
+
+.typeSlide .btn {
+    width: 14%;
+}
+
+.typeSlide .divder {
+    border-top: 1px solid #fb3;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 85%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+}
+
+
+/*  style daashboard page */
+
+.select {
+    width: 100%;
+}
+
+.select select {
+    width: 45%;
+}
+
+.select select:first-child {
+    float: left;
+    margin-right: 2.5%;
+}
+
+.select select:last-child {
+    margin-left: 2.5%;
+    float: right;
 }
 
 footer {
