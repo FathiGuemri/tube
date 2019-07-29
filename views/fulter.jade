@@ -5,8 +5,8 @@ block content
         .row.container
           each item in data
               li.p-3.col-md-4.py-4.mix(class=item.type data-order=(index + 1))
-                  button.p-1.video-link.p-0.btn-outline-orange.btn.w-100(data-item=item, data-video='assets/video/' + item.id + '-video.' + item.videoName.split('.')[1], class="open")
+                  a.p-1.video-link.p-0.btn-outline-orange.btn.w-100(href='/watch/' + item.id )
                       .video-img.w-50
-                        img(src='assets/images/' + item.id + '-image.' + item.image.split('.')[1]) 
+                        img(src='/assets/images/' + item.id + '-image.' + item.image.split('.')[1]) 
                       span.video-title.w-50=item.title
                       .clearfix

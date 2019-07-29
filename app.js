@@ -6,7 +6,7 @@ var express = require('express'),
     app = express(),
     port = 8080;
 
-const { indexRouter } = require('./routes/index.js');
+const { indexRouter, watch } = require('./routes/index.js');
 const { dashboard, admin, addVideo, deleteVideo, adNewType, adNewLang } = require('./routes/dashboard');
 const { getData } = require('./routes/fulter.js');
 
@@ -21,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUplode()); // configure fil upload
 
 app.get('/', indexRouter);
+app.get('/watch/:filmId', watch);
 app.get('/admin', admin);
 app.get('/dashboard', dashboard);
 app.post('/dashboard', addVideo);

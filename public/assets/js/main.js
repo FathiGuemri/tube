@@ -15,25 +15,6 @@ $(function() {
     let lecter = $('.lecter');
     // open video on click link
 
-    $('.open').on('click', function() {
-        let urlVideo = $(this).attr('data-video');
-        lecter.attr('src', urlVideo);
-        $(window).scrollTop(0);
-
-        var data = JSON.parse($(this).attr('data-item'));
-        var d = new Date(data.date).toDateString()
-        var t = new Date(data.date)
-        t.setHours(t.getHours() + 1)
-        var timeDate = d + ' ' + t.toLocaleTimeString()
-
-        $('.v-info strong').text(data.title);
-        $('.v-info p').text(data.description);
-        $('.v-info .type').text(data.type);
-        $('.v-info .time').text(timeDate);
-
-
-    });
-
 
     var close = setTimeout(function() {
         $('.alert').fadeOut().remove()
