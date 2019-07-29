@@ -32,10 +32,10 @@ app.get('/fulter/:fulter', getData);
 
 // create connection to mysql database
 const db = mysql.createConnection({
-    host: 'b6hdwv6yo3biexq37s2e-mysql.services.clever-cloud.com',
-    user: 'uwirc5lbkahga5lt',
-    password: '3CtOUgE4frbqhFuBUE9x',
-    database: 'b6hdwv6yo3biexq37s2e'
+    host: 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    user: 'sc6zkww04tb224if',
+    password: 'jut1uz8u1kj8k8h7',
+    database: 'xyljnm9vjeppxcyy'
 });
 
 db.connect((err) => {
